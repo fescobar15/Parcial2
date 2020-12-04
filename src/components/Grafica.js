@@ -13,6 +13,16 @@ class Grafica extends Component {
     this.drawChart(this.state.data);
   }
 
+  determineMax(data) {
+    let max = -1;
+    data.forEach((element) => {
+      if (element.seasons > max) {
+        max = element.seasons;
+      }
+    });
+    return max + 2;
+  }
+
   drawChart(data) {
     const canvas = d3.select(this.refs.canvas);
     const width = 700;
@@ -29,7 +39,10 @@ class Grafica extends Component {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const y = d3.scaleLinear().domain([0, 14]).range([iheight, 0]);
+    const y = d3
+      .scaleLinear()
+      .domain([0, this.determineMax(data)])
+      .range([iheight, 0]);
 
     const x = d3
       .scaleBand()
