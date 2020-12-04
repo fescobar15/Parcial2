@@ -1,0 +1,8 @@
+{
+	"Name": "Nombre",
+	"Channel": "Canal",
+	"Description": "Descripción",
+	"Series": "Series",
+	"Error": "Error al buscar los datos. Intente nuevamente",
+	"Seasons": "Temporadas"
+}
